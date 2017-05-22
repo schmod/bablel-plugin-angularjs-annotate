@@ -177,6 +177,13 @@ Initially, I had hoped to make very few modifications to the upstream sources, i
 merging babel support directly into ng-annotate.  Unfortunately, Babylon appears to have diverged too
 far from Acorn to make that goal realistic.  (I would love to be wrong here, and would welcome contributions that close the gap between the two projects!)
 
+### Building
+
+For Node legacy compatibility, all code is transpiled to ES5 via Babel, to build just run:
+```
+npm run build
+```
+
 ### To run tests:
 
 ```

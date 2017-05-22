@@ -2,7 +2,7 @@
   "name": "babel-plugin-angularjs-annotate",
   "version": "0.7.0",
   "description": "Babel plugin to add angularjs dependency injection annotations",
-  "main": "babel-ng-annotate.js",
+  "main": "dist/babel-ng-annotate.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/schmod/babel-plugin-angularjs-annotate"
@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-preset-es2015": "^6.9.0",
+    "babel-cli": "^6.0.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "chalk": "^1.1.1",
@@ -41,7 +42,8 @@
     "lint": "eslint *.js",
     "test": "node --harmony tests/tests.js | tap-xunit",
     "watch": "watchify docs/repl.js -o docs/repl-browser.js -t babelify --presets es2015",
-    "build-site": "browserify docs/repl.js -o docs/repl-browser.js -t babelify --presets es2015"
+    "build-site": "browserify docs/repl.js -o docs/repl-browser.js -t babelify --presets es2015",
+    "build": "./node_modules/.bin/babel src --out-dir dist"
   },
   "author": "Andrew Schmadel",
   "license": "MIT"
