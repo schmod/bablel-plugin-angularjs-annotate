@@ -10,7 +10,7 @@ const path = require('path');
 const resolve = (file) => path.resolve(__dirname, file);
 
 const ES6presets = [resolve("./es2015-modified")];
-const plugin = resolve("../babel-ng-annotate.js");
+const plugin = resolve("../dist/babel-ng-annotate.js");
 
 let suites = [
   require('./simple'),
@@ -61,8 +61,8 @@ function runTest(test) {
     }
 
     // And again without the ES6 transformations
-    if(!test.noES6){   
-      doTransform(t, test, [], 'ES2015'); 
+    if(!test.noES6){
+      doTransform(t, test, [], 'ES2015');
     }
 
     t.end();
