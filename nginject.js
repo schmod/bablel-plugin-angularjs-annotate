@@ -134,6 +134,11 @@ function getAnnotation(node){
     } else if (value === "@ngNoInject") {
       return false;
     }
+
+    let multilineComment = value.replace(/\n/g, '').trim();
+    if (multilineComment.indexOf('* @ngInject') !== -1) {
+      return true;
+    }
   }
 
   return null;
