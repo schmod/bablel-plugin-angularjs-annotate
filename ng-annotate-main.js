@@ -218,11 +218,15 @@ function matchNgUi(path) {
         matchStateProps(properties, res);
 
         const childrenArrayExpression = matchProp("children", properties);
-        const children = childrenArrayExpression && childrenArrayExpression.get("elements");
+        if (!childrenArrayExpression || !t.isArrayExpression(childrenArrayExpression)) {
+            return
+        }
 
+        const children = childrenArrayExpression.get("elements");
         if (!children) {
             return;
         }
+
         children.forEach(recursiveMatch);
     }
 
