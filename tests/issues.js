@@ -51,11 +51,9 @@ module.exports = {
 
             __extends(FooBar, _super);
             function FooBar($a, $b) {
-                "ngInject";
                 _super.call(this);
             }
             FooBar.onEnter = ["callback", function (callback) {
-                "ngInject";
                 x;
             }];
             return FooBar;
@@ -196,7 +194,6 @@ module.exports = {
         }]);
       }, expected: function(){
         g(["a", "b", function(a, b) {
-          "ngInject"
         }])
       }
     },
@@ -212,7 +209,6 @@ module.exports = {
       }, expected: function() {
         var outside = function(arg = {}) {
           var inside = function ($q) {
-            'ngInject';
           };
           inside.$inject = ['$q'];
           return inside;
@@ -232,10 +228,8 @@ module.exports = {
       },
       expected: function(){
         module.exports = ['$filterProvider', function($filterProvider) {
-          'ngInject';
           ordinalSuffixFilter.$inject = ['ordinalSuffix'];
           function ordinalSuffixFilter(ordinalSuffix) {
-            'ngInject';
           }
         }];
       },

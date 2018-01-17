@@ -198,6 +198,19 @@ function matchPrologueDirectives(path) {
 
     if(matches.length){
       let match = matches[0].trim();
+
+      // Remove the directive, since it's no longer needed. We skip this for
+      // object methods because we'll recurse back into here after expanding them
+      // into normal functions.
+      if(!t.isObjectMethod(path) || !target.params.length){
+        for(let i=directives.length-1, it; i>=0 ; i--){
+          it = directives[i];
+          if(it.value.value === "ngInject"){
+            directives.splice(i,1);
+          }
+        }
+      }
+
       if(match === "ngInject") return true;
       if(match === "ngNoInject") return false;
     }

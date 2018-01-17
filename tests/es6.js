@@ -71,7 +71,6 @@ module.exports = {
     expected: `
       _ngInjectExport.$inject = ['$timeout'];
       export default function _ngInjectExport($timeout) {
-        'ngInject';
         return 'foo';
       }
     `
@@ -138,8 +137,6 @@ module.exports = {
     expected: `
     export default class _ngInjectAnonymousClass {
       constructor($timeout) {
-        'ngInject';
-
         return 'foo';
       }
     }
@@ -184,7 +181,6 @@ module.exports = {
     expected: function(){
       class svc {
           constructor(dep1){
-              'ngInject';
               this.dep1 = dep1;
           }
       }
@@ -204,7 +200,6 @@ module.exports = {
     expected: function() {
       var foo = {
         bar: ['baz', function(baz) {
-          'ngInject';
         }]
       }
     }

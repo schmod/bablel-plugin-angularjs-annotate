@@ -200,7 +200,7 @@ module.exports = {
         var foos3 = ($scope) => {
             // comments are ok before the Directive Prologues
             // and there may be multiple Prologues
-            "use strict"; "ngInject";
+            "use strict";
         };
         foos3.$inject = ["$scope"];
       }
@@ -211,7 +211,7 @@ module.exports = {
         var dual1 = (a) => { "ngInject" }, dual2 = (b) => { "ngInject" };
       },
       expected: function(){
-        var dual1 = (a) => { "ngInject" }, dual2 = (b) => { "ngInject" };
+        var dual1 = (a) => { }, dual2 = (b) => { };
         dual2.$inject = ["b"];
         dual1.$inject = ["a"];
       }
@@ -225,7 +225,6 @@ module.exports = {
       },
       expected: function(){
         g(["c", (c) => {
-            "ngInject"
         }]);
       }
     },
