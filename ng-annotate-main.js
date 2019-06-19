@@ -171,6 +171,7 @@ function matchNgUi(path) {
     //     ...
     //     controller: function($scope)
     //     controllerProvider: function($scope)
+    //     componentProvider: function($scope)
     //     templateProvider: function($scope)
     //     onEnter: function($scope)
     //     onExit: function($scope)
@@ -252,6 +253,7 @@ function matchNgUi(path) {
             matchProp("controller", props),
             matchProp("controllerProvider", props),
             matchProp("templateProvider", props),
+            matchProp("componentProvider", props),
             matchProp("onEnter", props),
             matchProp("onExit", props),
         ];
@@ -283,6 +285,7 @@ function matchNgUi(path) {
                     res.push(matchProp("controller", props));
                     res.push(matchProp("controllerProvider", props));
                     res.push(matchProp("templateProvider", props));
+                    res.push(matchProp("componentProvider", props));
                     res.push.apply(res, matchResolve(props));
                 }
             });
