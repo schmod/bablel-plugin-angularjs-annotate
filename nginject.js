@@ -274,6 +274,11 @@ function inspectClassMethod(path, ctx){
       addSuspect(ancestor, ctx, !annotation);
       return;
     }
+
+    if (ancestor.isVariableDeclaration()) {
+      addSuspect(ancestor, ctx, !annotation);
+      return;
+    }
   }
 }
 

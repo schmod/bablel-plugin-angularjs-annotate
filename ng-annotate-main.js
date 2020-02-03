@@ -771,7 +771,7 @@ function judgeInjectArraySuspect(path, ctx) {
     path = jumpOverIife(path);
     node = path.node;
 
-    if (t.isClass(node)){
+    if (t.isClass(node) || t.isClassExpression(node)){
         if (!node.id) {
             node.id = path.scope.generateUidIdentifier('ngInjectAnonymousClass');
         }
