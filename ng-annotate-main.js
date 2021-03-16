@@ -899,6 +899,9 @@ function isGenericProviderName(node) {
 function getNamedParam(p) {
   let param = p;
   if (t.isAssignmentPattern(p)) param = p.left;
+  if (param.loc && param.loc.identifierName) {
+      return param.loc.identifierName;
+  }
   return param.name;
 }
 
